@@ -306,6 +306,20 @@ Possible improvements:
 
 ---
 
+ Documentation
+
+SETUP_PLAN.md – Planned setup for the home server
+
+HOME_SERVER_ARCHITECTURE.md – Overall architecture and network structure
+
+SERVICES.md – List of open-source services used in the server
+
+SECURITY.md – Security practices for protecting the server
+
+BACKUP_STRATEGY.md – Data backup plan and recovery process
+
+---
+
 Final Note
 
 A home server does not need expensive hardware.
