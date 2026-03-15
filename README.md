@@ -319,6 +319,28 @@ SECURITY.md – Security practices for protecting the server
 BACKUP_STRATEGY.md – Data backup plan and recovery process
 
 ---
+## Architecture Diagrams
+
+### System Topology
+
+![System Topology](diagrams/01-system-topology.svg)
+
+### Request Lifecycle
+
+![Request Lifecycle](diagrams/02-request-lifecycle.svg)
+
+### DNS Resolution
+
+![DNS Resolution](diagrams/03-dns-resolution.svg)
+
+### Service Port Map
+
+![Port Map](diagrams/04-port-map.svg)
+
+### Storage and Backup
+
+![Storage Backup](diagrams/05-storage-backup.svg)
+---
 
 Final Note
 
