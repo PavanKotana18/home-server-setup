@@ -1,0 +1,155 @@
+<svg width="900" height="640" viewBox="0 0 900 640" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M1 1L9 5L1 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="640" rx="16" fill="#ffffff" stroke="#e8e6de" stroke-width="1"/>
+
+  <!-- Title -->
+  <rect x="0" y="0" width="900" height="54" rx="16" fill="#1a1a1a"/>
+  <rect x="0" y="38" width="900" height="16" fill="#1a1a1a"/>
+  <text x="450" y="24" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="16" font-weight="700" fill="#ffffff" dominant-baseline="central">Port Map &amp; Network Exposure</text>
+  <text x="450" y="46" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#9ca3af" dominant-baseline="central">What is open to the internet · what is LAN-only · NAT rules · Diagram 4 of 5</text>
+
+  <!-- ════ ZONE 1: INTERNET ════ -->
+  <rect x="20" y="70" width="860" height="90" rx="10" fill="#EBF4FD" stroke="#185FA5" stroke-width="0.75"/>
+  <rect x="20" y="70" width="5" height="90" rx="2" fill="#185FA5"/>
+  <text x="38" y="87" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" font-weight="700" fill="#185FA5" letter-spacing="1">INTERNET — PUBLIC WAN</text>
+  <text x="38" y="103" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#185FA5">Only one port is intentionally reachable from the outside world</text>
+  <!-- WireGuard pill centred -->
+  <rect x="284" y="114" width="332" height="38" rx="9" fill="#185FA5"/>
+  <text x="450" y="129" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="14" font-weight="700" fill="#ffffff" dominant-baseline="central">UDP 51820 — WireGuard VPN</text>
+  <text x="450" y="144" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#B5D4F4" dominant-baseline="central">inbound from internet · all other WAN ports blocked at router</text>
+
+  <!-- NAT BOUNDARY -->
+  <line x1="20" y1="175" x2="880" y2="175" stroke="#888780" stroke-width="1.5" stroke-dasharray="7 4"/>
+  <rect x="340" y="167" width="220" height="16" rx="4" fill="#ffffff"/>
+  <text x="450" y="175" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" font-weight="700" fill="#888780" dominant-baseline="central" letter-spacing="0.5">NAT / ROUTER BOUNDARY</text>
+
+  <!-- ════ ZONE 2: ROUTER ════ -->
+  <rect x="20" y="184" width="860" height="72" rx="10" fill="#f4fdf9" stroke="#0F6E56" stroke-width="0.75"/>
+  <rect x="20" y="184" width="5" height="72" rx="2" fill="#0F6E56"/>
+  <text x="38" y="200" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" font-weight="700" fill="#0F6E56" letter-spacing="1">HOME ROUTER — ONLY ONE PORT-FORWARD RULE</text>
+  <!-- Rule row -->
+  <rect x="38" y="210" width="824" height="36" rx="7" fill="#ffffff" stroke="#0F6E56" stroke-width="0.5"/>
+  <text x="58" y="228" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" font-weight="700" fill="#085041" dominant-baseline="central">FORWARD</text>
+  <!-- ext port -->
+  <rect x="152" y="218" width="96" height="20" rx="4" fill="#E6F1FB"/>
+  <text x="200" y="228" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="11" font-weight="700" fill="#0C447C" dominant-baseline="central">UDP : 51820</text>
+  <text x="258" y="228" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" fill="#0F6E56" dominant-baseline="central" font-weight="700">→</text>
+  <!-- int addr -->
+  <rect x="276" y="218" width="188" height="20" rx="4" fill="#E1F5EE"/>
+  <text x="370" y="228" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="11" font-weight="700" fill="#085041" dominant-baseline="central">192.168.1.x : 51820</text>
+  <text x="476" y="228" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#5F5E5A" dominant-baseline="central">→  WireGuard process on home server</text>
+  <text x="38" y="252" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#993C1D" font-style="italic">All other inbound WAN ports are BLOCKED — no services are directly internet-accessible</text>
+
+  <!-- INTERNAL BOUNDARY -->
+  <line x1="20" y1="264" x2="880" y2="264" stroke="#534AB7" stroke-width="1.5" stroke-dasharray="7 4"/>
+  <rect x="320" y="256" width="260" height="16" rx="4" fill="#ffffff"/>
+  <text x="450" y="264" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" font-weight="700" fill="#534AB7" dominant-baseline="central" letter-spacing="0.5">LAN / VPN INTERNAL — BELOW THIS LINE</text>
+
+  <!-- ════ ZONE 3: SERVER PORTS ════ -->
+  <rect x="20" y="273" width="860" height="164" rx="10" fill="#faf9ff" stroke="#534AB7" stroke-width="0.75"/>
+  <rect x="20" y="273" width="5" height="164" rx="2" fill="#534AB7"/>
+  <text x="38" y="290" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" font-weight="700" fill="#534AB7" letter-spacing="1">HOME SERVER — LISTENING PORTS (LAN &amp; VPN ACCESSIBLE)</text>
+  <!-- 3-col × 2-row port tiles. col x=38,322,606  w=268 gap=16  row y=298,362 h=56 -->
+
+  <!-- R1C1: WireGuard -->
+  <rect x="38" y="300" width="268" height="56" rx="8" fill="#ffffff" stroke="#534AB7" stroke-width="0.5"/>
+  <rect x="38" y="300" width="268" height="22" rx="8" fill="#EEEDFE"/>
+  <rect x="38" y="314" width="268" height="8" fill="#EEEDFE"/>
+  <text x="172" y="311" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="12" font-weight="700" fill="#3C3489" dominant-baseline="central">UDP 51820</text>
+  <text x="172" y="336" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#444441" dominant-baseline="central">WireGuard VPN</text>
+  <text x="172" y="350" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#993C1D" dominant-baseline="central">internet-forwarded</text>
+
+  <!-- R1C2: SSH -->
+  <rect x="322" y="300" width="268" height="56" rx="8" fill="#ffffff" stroke="#534AB7" stroke-width="0.5"/>
+  <rect x="322" y="300" width="268" height="22" rx="8" fill="#EEEDFE"/>
+  <rect x="322" y="314" width="268" height="8" fill="#EEEDFE"/>
+  <text x="456" y="311" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="12" font-weight="700" fill="#3C3489" dominant-baseline="central">TCP 22</text>
+  <text x="456" y="336" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#444441" dominant-baseline="central">SSH — server management</text>
+  <text x="456" y="350" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#0F6E56" dominant-baseline="central">LAN + VPN only</text>
+
+  <!-- R1C3: DNS -->
+  <rect x="606" y="300" width="268" height="56" rx="8" fill="#ffffff" stroke="#534AB7" stroke-width="0.5"/>
+  <rect x="606" y="300" width="268" height="22" rx="8" fill="#EEEDFE"/>
+  <rect x="606" y="314" width="268" height="8" fill="#EEEDFE"/>
+  <text x="740" y="311" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="12" font-weight="700" fill="#3C3489" dominant-baseline="central">UDP/TCP 53</text>
+  <text x="740" y="336" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#444441" dominant-baseline="central">Pi-hole DNS resolver</text>
+  <text x="740" y="350" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#0F6E56" dominant-baseline="central">LAN only</text>
+
+  <!-- R2C1: Pi-hole UI -->
+  <rect x="38" y="364" width="268" height="56" rx="8" fill="#ffffff" stroke="#534AB7" stroke-width="0.5"/>
+  <rect x="38" y="364" width="268" height="22" rx="8" fill="#EEEDFE"/>
+  <rect x="38" y="378" width="268" height="8" fill="#EEEDFE"/>
+  <text x="172" y="375" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="12" font-weight="700" fill="#3C3489" dominant-baseline="central">TCP 80</text>
+  <text x="172" y="400" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#444441" dominant-baseline="central">Pi-hole admin web UI</text>
+  <text x="172" y="414" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#0F6E56" dominant-baseline="central">LAN only</text>
+
+  <!-- R2C2: App ports -->
+  <rect x="322" y="364" width="268" height="56" rx="8" fill="#ffffff" stroke="#534AB7" stroke-width="0.5"/>
+  <rect x="322" y="364" width="268" height="22" rx="8" fill="#EEEDFE"/>
+  <rect x="322" y="378" width="268" height="8" fill="#EEEDFE"/>
+  <text x="456" y="375" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="12" font-weight="700" fill="#3C3489" dominant-baseline="central">TCP 8080 · 8096</text>
+  <text x="456" y="400" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#444441" dominant-baseline="central">Nextcloud · Jellyfin</text>
+  <text x="456" y="414" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#0F6E56" dominant-baseline="central">LAN + VPN tunnel</text>
+
+  <!-- R2C3: Monitoring/PW -->
+  <rect x="606" y="364" width="268" height="56" rx="8" fill="#ffffff" stroke="#534AB7" stroke-width="0.5"/>
+  <rect x="606" y="364" width="268" height="22" rx="8" fill="#EEEDFE"/>
+  <rect x="606" y="378" width="268" height="8" fill="#EEEDFE"/>
+  <text x="740" y="375" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="12" font-weight="700" fill="#3C3489" dominant-baseline="central">TCP 3001 · 8081</text>
+  <text x="740" y="400" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#444441" dominant-baseline="central">Uptime Kuma · Vaultwarden</text>
+  <text x="740" y="414" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#0F6E56" dominant-baseline="central">LAN + VPN tunnel</text>
+
+  <!-- ════ ZONE 4: DOCKER INTERNAL ════ -->
+  <rect x="20" y="447" width="860" height="120" rx="10" fill="#f2fff8" stroke="#1D9E75" stroke-width="0.75"/>
+  <rect x="20" y="447" width="5" height="120" rx="2" fill="#1D9E75"/>
+  <text x="38" y="464" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" font-weight="700" fill="#0F6E56" letter-spacing="1">DOCKER INTERNAL PORTS — CONTAINER TO CONTAINER (NEVER HOST-EXPOSED)</text>
+  <!-- 3 col × 2 row -->
+  <rect x="38"  y="474" width="268" height="32" rx="6" fill="#ffffff" stroke="#9FE1CB" stroke-width="0.5"/>
+  <text x="54"  y="490" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" font-weight="700" fill="#085041" dominant-baseline="central">Pi-hole</text>
+  <text x="180" y="490" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="11" fill="#0F6E56" dominant-baseline="central">→ Unbound : 5335</text>
+  <text x="298" y="490" text-anchor="end" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#888780" dominant-baseline="central">DNS upstream</text>
+
+  <rect x="322" y="474" width="268" height="32" rx="6" fill="#ffffff" stroke="#9FE1CB" stroke-width="0.5"/>
+  <text x="338" y="490" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" font-weight="700" fill="#085041" dominant-baseline="central">Unbound</text>
+  <text x="460" y="490" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="11" fill="#0F6E56" dominant-baseline="central">listens : 5335</text>
+  <text x="582" y="490" text-anchor="end" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#888780" dominant-baseline="central">internal only</text>
+
+  <rect x="606" y="474" width="268" height="32" rx="6" fill="#ffffff" stroke="#9FE1CB" stroke-width="0.5"/>
+  <text x="622" y="490" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" font-weight="700" fill="#085041" dominant-baseline="central">Nextcloud</text>
+  <text x="750" y="490" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="11" fill="#0F6E56" dominant-baseline="central">:80 → host :8080</text>
+  <text x="866" y="490" text-anchor="end" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#888780" dominant-baseline="central">docker -p</text>
+
+  <rect x="38"  y="514" width="268" height="32" rx="6" fill="#ffffff" stroke="#9FE1CB" stroke-width="0.5"/>
+  <text x="54"  y="530" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" font-weight="700" fill="#085041" dominant-baseline="central">Jellyfin</text>
+  <text x="180" y="530" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="11" fill="#0F6E56" dominant-baseline="central">:8096 → host :8096</text>
+  <text x="298" y="530" text-anchor="end" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#888780" dominant-baseline="central">docker -p</text>
+
+  <rect x="322" y="514" width="268" height="32" rx="6" fill="#ffffff" stroke="#9FE1CB" stroke-width="0.5"/>
+  <text x="338" y="530" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" font-weight="700" fill="#085041" dominant-baseline="central">Vaultwarden</text>
+  <text x="462" y="530" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="11" fill="#0F6E56" dominant-baseline="central">:80 → host :8081</text>
+  <text x="582" y="530" text-anchor="end" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#888780" dominant-baseline="central">docker -p</text>
+
+  <rect x="606" y="514" width="268" height="32" rx="6" fill="#ffffff" stroke="#9FE1CB" stroke-width="0.5"/>
+  <text x="622" y="530" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" font-weight="700" fill="#085041" dominant-baseline="central">Uptime Kuma</text>
+  <text x="750" y="530" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="11" fill="#0F6E56" dominant-baseline="central">:3001 → host :3001</text>
+  <text x="866" y="530" text-anchor="end" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#888780" dominant-baseline="central">docker -p</text>
+
+  <!-- Legend -->
+  <line x1="20" y1="578" x2="880" y2="578" stroke="#e8e6de" stroke-width="1"/>
+  <rect x="30"  y="590" width="12" height="12" rx="2" fill="#185FA5"/>
+  <text x="48" y="600" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#5F5E5A" dominant-baseline="central">Internet-exposed</text>
+  <rect x="178" y="590" width="12" height="12" rx="2" fill="#0F6E56"/>
+  <text x="196" y="600" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#5F5E5A" dominant-baseline="central">LAN / VPN only</text>
+  <rect x="318" y="590" width="12" height="12" rx="2" fill="#534AB7"/>
+  <text x="336" y="600" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#5F5E5A" dominant-baseline="central">Server listening port</text>
+  <rect x="492" y="590" width="12" height="12" rx="2" fill="#1D9E75"/>
+  <text x="510" y="600" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#5F5E5A" dominant-baseline="central">Docker internal (never exposed)</text>
+  <line x1="724" y1="596" x2="754" y2="596" stroke="#888780" stroke-width="2" stroke-dasharray="6 3"/>
+  <text x="760" y="600" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#5F5E5A" dominant-baseline="central">Zone boundary</text>
+  <text x="450" y="624" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="10" fill="#B4B2A9">Ports are defaults — adjust to match your docker-compose.yml</text>
+</svg>

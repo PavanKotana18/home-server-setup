@@ -1,0 +1,97 @@
+<svg width="900" height="400" viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="fwd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M1 1L9 5L1 9" fill="none" stroke="#534AB7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="ret" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M1 1L9 5L1 9" fill="none" stroke="#3B6D11" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="400" rx="16" fill="#ffffff" stroke="#e8e6de" stroke-width="1"/>
+
+  <!-- Title -->
+  <rect x="0" y="0" width="900" height="54" rx="16" fill="#1a1a1a"/>
+  <rect x="0" y="38" width="900" height="16" fill="#1a1a1a"/>
+  <text x="450" y="24" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="16" font-weight="700" fill="#ffffff" dominant-baseline="central">DNS Resolution Flow</text>
+  <text x="450" y="46" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#9ca3af" dominant-baseline="central">How a DNS query travels from your device to the internet and back · Diagram 3 of 5</text>
+
+  <!-- Description -->
+  <text x="450" y="80" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#5F5E5A" dominant-baseline="central">When you visit a website, your device asks Pi-hole for the IP address. Pi-hole checks its blocklist, then asks Unbound,</text>
+  <text x="450" y="96" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#5F5E5A" dominant-baseline="central">which contacts the internet's root DNS servers directly — no third-party DNS (like Google 8.8.8.8) ever sees your queries.</text>
+
+  <!-- ─────── FORWARD PATH ─────── -->
+  <!-- 5 nodes: Device(80), Pi-hole(230), Unbound(380), Root DNS(530), Blocked(680) -->
+  <!-- Node width=130, gap=20, centers: 145,310,475,640 (+ blocked at right) -->
+
+  <!-- Node 1: Device -->
+  <rect x="20" y="116" width="130" height="60" rx="9" fill="#F1EFE8" stroke="#888780" stroke-width="0.75"/>
+  <text x="85" y="139" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" font-weight="700" fill="#374141" dominant-baseline="central">Your device</text>
+  <text x="85" y="157" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#5F5E5A" dominant-baseline="central">asks: what is the IP</text>
+  <text x="85" y="170" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#5F5E5A" dominant-baseline="central">of example.com?</text>
+
+  <!-- Arrow: Device → Pi-hole -->
+  <line x1="150" y1="146" x2="190" y2="146" stroke="#534AB7" stroke-width="2" marker-end="url(#fwd)"/>
+  <text x="170" y="136" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="9" fill="#534AB7" font-weight="600">query</text>
+
+  <!-- Node 2: Pi-hole -->
+  <rect x="190" y="110" width="160" height="72" rx="9" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.75"/>
+  <text x="270" y="133" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" font-weight="700" fill="#3C3489" dominant-baseline="central">Pi-hole</text>
+  <text x="270" y="151" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#534AB7" dominant-baseline="central">Checks blocklist</text>
+  <text x="270" y="165" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#534AB7" dominant-baseline="central">Docker · TCP/UDP 53</text>
+  <text x="270" y="178" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#534AB7" dominant-baseline="central">port :8053 internally</text>
+
+  <!-- Pi-hole → blocked branch -->
+  <path d="M 270 182 L 270 220 L 760 220 L 760 182" fill="none" stroke="#E24B4A" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <rect x="680" y="116" width="160" height="60" rx="9" fill="#FCEBEB" stroke="#E24B4A" stroke-width="0.75"/>
+  <text x="760" y="139" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" font-weight="700" fill="#501313" dominant-baseline="central">Blocked</text>
+  <text x="760" y="157" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#A32D2D" dominant-baseline="central">Ad domain? → blocked</text>
+  <text x="760" y="170" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#A32D2D" dominant-baseline="central">returns 0.0.0.0</text>
+  <text x="515" y="214" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="9" fill="#E24B4A">if domain is on blocklist →</text>
+
+  <!-- Arrow: Pi-hole → Unbound (allowed path) -->
+  <line x1="350" y1="146" x2="390" y2="146" stroke="#534AB7" stroke-width="2" marker-end="url(#fwd)"/>
+  <text x="370" y="136" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="9" fill="#534AB7" font-weight="600">forward</text>
+  <text x="370" y="160" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="9" fill="#0F6E56" font-style="italic">if allowed</text>
+
+  <!-- Node 3: Unbound -->
+  <rect x="390" y="110" width="160" height="72" rx="9" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.75"/>
+  <text x="470" y="133" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" font-weight="700" fill="#3C3489" dominant-baseline="central">Unbound</text>
+  <text x="470" y="151" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#534AB7" dominant-baseline="central">Recursive resolver</text>
+  <text x="470" y="165" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#534AB7" dominant-baseline="central">Docker · port :5335</text>
+  <text x="470" y="178" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#534AB7" dominant-baseline="central">internal to Pi-hole only</text>
+
+  <!-- Arrow: Unbound → Root DNS -->
+  <line x1="550" y1="146" x2="586" y2="146" stroke="#534AB7" stroke-width="2" marker-end="url(#fwd)"/>
+  <text x="568" y="136" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="9" fill="#534AB7" font-weight="600">lookup</text>
+
+  <!-- Node 4: Root DNS -->
+  <rect x="586" y="110" width="80" height="72" rx="9" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.75"/>
+  <text x="626" y="131" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" font-weight="700" fill="#0C447C" dominant-baseline="central">Root DNS</text>
+  <text x="626" y="149" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#185FA5" dominant-baseline="central">Internet name</text>
+  <text x="626" y="163" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#185FA5" dominant-baseline="central">servers</text>
+  <text x="626" y="177" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#185FA5" dominant-baseline="central">e.g. a.root…</text>
+
+  <!-- ─────── RETURN PATH (dashed green below) ─────── -->
+  <path d="M 666 182 L 666 248 L 20 248 L 20 176" fill="none" stroke="#3B6D11" stroke-width="2" stroke-dasharray="6 3" marker-end="url(#ret)"/>
+  <text x="343" y="264" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#3B6D11" font-weight="600">resolved IP address returned to device</text>
+  <text x="343" y="280" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#3B6D11">Unbound caches result · Pi-hole logs query · device receives IP · browser connects</text>
+
+  <!-- ─────── KEY INSIGHT BOX ─────── -->
+  <rect x="20" y="302" width="860" height="60" rx="9" fill="#EAF3DE" stroke="#3B6D11" stroke-width="0.75"/>
+  <rect x="20" y="302" width="5" height="60" rx="2" fill="#3B6D11"/>
+  <text x="38" y="322" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" font-weight="700" fill="#27500A" dominant-baseline="central">Why Pi-hole + Unbound together?</text>
+  <text x="38" y="342" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#3B6D11" dominant-baseline="central">Pi-hole blocks ad domains. Unbound resolves everything else directly from root servers — your DNS queries never leave to a</text>
+  <text x="38" y="358" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#3B6D11" dominant-baseline="central">third-party like Google (8.8.8.8) or Cloudflare (1.1.1.1). Full privacy + ad blocking in one setup.</text>
+
+  <!-- Legend -->
+  <line x1="20" y1="378" x2="880" y2="378" stroke="#e8e6de" stroke-width="1"/>
+  <line x1="30" y1="392" x2="58" y2="392" stroke="#534AB7" stroke-width="2"/>
+  <text x="64" y="396" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#5F5E5A" dominant-baseline="central">DNS query (forward)</text>
+  <line x1="218" y1="392" x2="246" y2="392" stroke="#3B6D11" stroke-width="2" stroke-dasharray="5 3"/>
+  <text x="252" y="396" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#5F5E5A" dominant-baseline="central">Resolved IP (return)</text>
+  <line x1="416" y1="392" x2="444" y2="392" stroke="#E24B4A" stroke-width="2" stroke-dasharray="4 2"/>
+  <text x="450" y="396" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#5F5E5A" dominant-baseline="central">Blocked (ad/tracker domain)</text>
+  <rect x="650" y="387" width="12" height="12" rx="2" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+  <text x="668" y="396" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#5F5E5A" dominant-baseline="central">Docker container</text>
+</svg>

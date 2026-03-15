@@ -1,0 +1,149 @@
+<svg width="900" height="600" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M1 1L9 5L1 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="600" rx="16" fill="#ffffff" stroke="#e8e6de" stroke-width="1"/>
+
+  <!-- Title -->
+  <rect x="0" y="0" width="900" height="54" rx="16" fill="#1a1a1a"/>
+  <rect x="0" y="38" width="900" height="16" fill="#1a1a1a"/>
+  <text x="450" y="24" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="16" font-weight="700" fill="#ffffff" dominant-baseline="central">Service → Storage Map &amp; Backup Flow</text>
+  <text x="450" y="46" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#9ca3af" dominant-baseline="central">Which container writes to which folder · automated backup chain · Diagram 5 of 5</text>
+
+  <!-- ════ SERVICES COLUMN ════ -->
+  <text x="30" y="76" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" font-weight="700" fill="#9ca3af" letter-spacing="1">DOCKER SERVICES</text>
+  <!-- 6 services, y=86 to y=86+6*58=434, spacing=58 -->
+
+  <!-- Pi-hole -->
+  <rect x="20" y="86" width="190" height="48" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.75"/>
+  <text x="115" y="106" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" font-weight="700" fill="#085041" dominant-baseline="central">Pi-hole</text>
+  <text x="115" y="122" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#0F6E56" dominant-baseline="central">DNS · ad blocking</text>
+
+  <!-- Unbound -->
+  <rect x="20" y="144" width="190" height="48" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.75"/>
+  <text x="115" y="164" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" font-weight="700" fill="#085041" dominant-baseline="central">Unbound</text>
+  <text x="115" y="180" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#0F6E56" dominant-baseline="central">Recursive DNS</text>
+
+  <!-- Nextcloud -->
+  <rect x="20" y="202" width="190" height="48" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.75"/>
+  <text x="115" y="222" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" font-weight="700" fill="#085041" dominant-baseline="central">Nextcloud</text>
+  <text x="115" y="238" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#0F6E56" dominant-baseline="central">Cloud storage</text>
+
+  <!-- Jellyfin -->
+  <rect x="20" y="260" width="190" height="48" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.75"/>
+  <text x="115" y="280" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" font-weight="700" fill="#085041" dominant-baseline="central">Jellyfin</text>
+  <text x="115" y="296" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#0F6E56" dominant-baseline="central">Media server</text>
+
+  <!-- Vaultwarden -->
+  <rect x="20" y="318" width="190" height="48" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.75"/>
+  <text x="115" y="338" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" font-weight="700" fill="#085041" dominant-baseline="central">Vaultwarden</text>
+  <text x="115" y="354" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#0F6E56" dominant-baseline="central">Password manager</text>
+
+  <!-- Uptime Kuma -->
+  <rect x="20" y="376" width="190" height="48" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.75"/>
+  <text x="115" y="396" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" font-weight="700" fill="#085041" dominant-baseline="central">Uptime Kuma</text>
+  <text x="115" y="412" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#0F6E56" dominant-baseline="central">Monitoring</text>
+
+  <!-- ════ SSD COLUMN ════ -->
+  <text x="254" y="76" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" font-weight="700" fill="#9ca3af" letter-spacing="1">SSD — SYSTEM + DOCKER</text>
+  <rect x="240" y="86" width="180" height="338" rx="10" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.75"/>
+  <text x="330" y="106" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" font-weight="700" fill="#633806" dominant-baseline="central">SSD</text>
+
+  <!-- SSD folders -->
+  <rect x="256" y="118" width="148" height="28" rx="6" fill="#fff8ef" stroke="#D3D1C7" stroke-width="0.5"/>
+  <text x="330" y="132" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="10" fill="#633806" dominant-baseline="central">/etc/pihole</text>
+  <rect x="256" y="152" width="148" height="28" rx="6" fill="#fff8ef" stroke="#D3D1C7" stroke-width="0.5"/>
+  <text x="330" y="166" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="10" fill="#633806" dominant-baseline="central">/etc/unbound</text>
+  <rect x="256" y="186" width="148" height="28" rx="6" fill="#fff8ef" stroke="#D3D1C7" stroke-width="0.5"/>
+  <text x="330" y="200" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="10" fill="#633806" dominant-baseline="central">/var/lib/docker</text>
+  <rect x="256" y="220" width="148" height="28" rx="6" fill="#fff8ef" stroke="#D3D1C7" stroke-width="0.5"/>
+  <text x="330" y="234" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="10" fill="#633806" dominant-baseline="central">container images</text>
+  <text x="330" y="290" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#854F0B" dominant-baseline="central">Fast reads</text>
+  <text x="330" y="306" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#854F0B" dominant-baseline="central">OS boots here</text>
+  <text x="330" y="322" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#854F0B" dominant-baseline="central">Docker volumes</text>
+
+  <!-- ════ HDD COLUMN ════ -->
+  <text x="458" y="76" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" font-weight="700" fill="#9ca3af" letter-spacing="1">HDD — DATA STORAGE</text>
+  <rect x="444" y="86" width="200" height="338" rx="10" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.75"/>
+  <text x="544" y="106" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" font-weight="700" fill="#633806" dominant-baseline="central">HDD</text>
+
+  <!-- HDD folders, matching service rows -->
+  <rect x="460" y="118" width="168" height="28" rx="6" fill="#fff8ef" stroke="#D3D1C7" stroke-width="0.5"/>
+  <text x="544" y="132" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="10" fill="#633806" dominant-baseline="central">/nextcloud/data</text>
+  <rect x="460" y="152" width="168" height="28" rx="6" fill="#fff8ef" stroke="#D3D1C7" stroke-width="0.5"/>
+  <text x="544" y="166" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="10" fill="#633806" dominant-baseline="central">/jellyfin/media</text>
+  <rect x="460" y="186" width="168" height="28" rx="6" fill="#fff8ef" stroke="#D3D1C7" stroke-width="0.5"/>
+  <text x="544" y="200" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="10" fill="#633806" dominant-baseline="central">/vaultwarden/data</text>
+  <rect x="460" y="220" width="168" height="28" rx="6" fill="#fff8ef" stroke="#D3D1C7" stroke-width="0.5"/>
+  <text x="544" y="234" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="10" fill="#633806" dominant-baseline="central">/uptime-kuma/data</text>
+  <rect x="460" y="254" width="168" height="28" rx="6" fill="#fff8ef" stroke="#D3D1C7" stroke-width="0.5"/>
+  <text x="544" y="268" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="10" fill="#633806" dominant-baseline="central">/documents</text>
+  <rect x="460" y="288" width="168" height="28" rx="6" fill="#fff8ef" stroke="#D3D1C7" stroke-width="0.5"/>
+  <text x="544" y="302" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="10" fill="#633806" dominant-baseline="central">/backups</text>
+
+  <!-- ══ SERVICE → STORAGE ARROWS ══ -->
+  <!-- Pi-hole → SSD /etc/pihole  y=110 -->
+  <line x1="210" y1="110" x2="238" y2="132" stroke="#854F0B" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- Unbound → SSD /etc/unbound  y=168 -->
+  <line x1="210" y1="168" x2="238" y2="166" stroke="#854F0B" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- Nextcloud → HDD  y=226 -->
+  <line x1="210" y1="226" x2="440" y2="132" stroke="#854F0B" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- Jellyfin → HDD /jellyfin/media  y=284 -->
+  <line x1="210" y1="284" x2="440" y2="166" stroke="#854F0B" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- Vaultwarden → HDD  y=342 -->
+  <line x1="210" y1="342" x2="440" y2="200" stroke="#854F0B" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- Uptime Kuma → HDD  y=400 -->
+  <line x1="210" y1="400" x2="440" y2="234" stroke="#854F0B" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- ════ BACKUP CHAIN ════ -->
+  <text x="690" y="76" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" font-weight="700" fill="#9ca3af" letter-spacing="1">BACKUP FLOW</text>
+
+  <!-- HDD → backup folder arrow -->
+  <line x1="644" y1="220" x2="680" y2="220" stroke="#3B6D11" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="662" y="212" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="10" fill="#3B6D11">rsync</text>
+
+  <!-- Backup folder node -->
+  <rect x="680" y="86" width="200" height="60" rx="9" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.75"/>
+  <text x="780" y="110" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" font-weight="700" fill="#633806" dominant-baseline="central">Backup folder</text>
+  <text x="780" y="128" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="11" fill="#854F0B" dominant-baseline="central">/mnt/backup</text>
+
+  <!-- Backup folder → external drive -->
+  <line x1="780" y1="146" x2="780" y2="186" stroke="#3B6D11" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="790" y="170" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="10" fill="#3B6D11">cron</text>
+
+  <!-- External drive node -->
+  <rect x="680" y="186" width="200" height="60" rx="9" fill="#EAF3DE" stroke="#3B6D11" stroke-width="0.75"/>
+  <text x="780" y="206" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" font-weight="700" fill="#27500A" dominant-baseline="central">External drive</text>
+  <text x="780" y="224" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#3B6D11" dominant-baseline="central">USB HDD · off-site</text>
+
+  <!-- Backup schedule note -->
+  <rect x="680" y="262" width="200" height="80" rx="9" fill="#f5fdf0" stroke="#3B6D11" stroke-width="0.75"/>
+  <rect x="680" y="262" width="5" height="80" rx="2" fill="#3B6D11"/>
+  <text x="698" y="280" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" font-weight="700" fill="#3B6D11">Schedule</text>
+  <text x="698" y="298" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="10" fill="#27500A">0 2 * * *</text>
+  <text x="698" y="314" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#3B6D11">runs at 02:00 nightly</text>
+  <text x="698" y="330" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#3B6D11">syncs changed files only</text>
+
+  <!-- HDD → Backup arrow label area -->
+  <line x1="644" y1="86" x2="644" y2="424" stroke="#e8e6de" stroke-width="1" stroke-dasharray="3 2"/>
+  <text x="656" y="420" font-family="ui-sans-serif,system-ui,sans-serif" font-size="9" fill="#888780" transform="rotate(-90,656,360)">backup source</text>
+
+  <!-- Legend -->
+  <line x1="20" y1="450" x2="880" y2="450" stroke="#e8e6de" stroke-width="1"/>
+  <line x1="30" y1="466" x2="58" y2="466" stroke="#854F0B" stroke-width="2"/>
+  <text x="64" y="470" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#5F5E5A" dominant-baseline="central">Service writes data here</text>
+  <line x1="240" y1="466" x2="268" y2="466" stroke="#3B6D11" stroke-width="2"/>
+  <text x="274" y="470" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#5F5E5A" dominant-baseline="central">Backup chain (rsync + cron)</text>
+  <rect x="478" y="461" width="12" height="12" rx="2" fill="#854F0B"/>
+  <text x="496" y="470" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#5F5E5A" dominant-baseline="central">Storage drive</text>
+  <rect x="608" y="461" width="12" height="12" rx="2" fill="#3B6D11"/>
+  <text x="626" y="470" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#5F5E5A" dominant-baseline="central">Backup destination</text>
+
+  <!-- Footer note -->
+  <text x="450" y="496" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#5F5E5A">Pi-hole and Unbound config lives on SSD (fast, small). All large data — media, cloud files, passwords — lives on HDD.</text>
+  <text x="450" y="512" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#5F5E5A">The HDD is the backup source. rsync copies only changed files nightly to /mnt/backup, then cron syncs to USB HDD.</text>
+  <text x="450" y="544" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="10" fill="#B4B2A9">Diagram 5 of 5 — paths are examples, adjust to match your docker-compose.yml volume mounts</text>
+</svg>

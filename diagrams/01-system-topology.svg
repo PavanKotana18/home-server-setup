@@ -1,0 +1,141 @@
+<svg width="860" height="960" viewBox="0 0 860 960" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M1 1L9 5L1 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="860" height="960" rx="16" fill="#ffffff" stroke="#e8e6de" stroke-width="1"/>
+
+  <!-- ── Title bar ── -->
+  <rect x="0" y="0" width="860" height="64" rx="16" fill="#1a1a1a"/>
+  <rect x="0" y="48" width="860" height="16" fill="#1a1a1a"/>
+  <text x="430" y="26" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="17" font-weight="700" fill="#ffffff" dominant-baseline="central">Home Server Architecture</text>
+  <text x="430" y="50" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#9ca3af" dominant-baseline="central">Self-hosted homelab · Ubuntu Server 22.04 + Docker Engine · Diagram 1 of 5</text>
+
+  <!-- ── Entry badge ── -->
+  <circle cx="36" cy="82" r="6" fill="#22c55e"/>
+  <text x="48" y="82" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#374151" dominant-baseline="central" font-weight="600">Start here — follow arrows top to bottom</text>
+
+  <!-- ════════════════════ LAYER 1 — INTERNET ════════════════════ -->
+  <text x="30" y="108" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" font-weight="700" fill="#9ca3af" letter-spacing="1.5">LAYER 1 — INTERNET</text>
+  <rect x="290" y="118" width="280" height="54" rx="9" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.75"/>
+  <text x="430" y="139" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" font-weight="700" fill="#0C447C" dominant-baseline="central">Internet</text>
+  <text x="430" y="157" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#185FA5" dominant-baseline="central">Public WAN · your ISP connection</text>
+  <!-- arrow down -->
+  <line x1="430" y1="172" x2="430" y2="196" stroke="#185FA5" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- ════════════════════ LAYER 2 — ROUTER ════════════════════ -->
+  <text x="30" y="210" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" font-weight="700" fill="#9ca3af" letter-spacing="1.5">LAYER 2 — ROUTER</text>
+  <rect x="270" y="220" width="320" height="54" rx="9" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.75"/>
+  <text x="430" y="241" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" font-weight="700" fill="#085041" dominant-baseline="central">Home router</text>
+  <text x="430" y="259" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#0F6E56" dominant-baseline="central">NAT · DHCP · assigns 192.168.x.x to all devices</text>
+  <!-- arrow down to server -->
+  <line x1="430" y1="274" x2="430" y2="360" stroke="#888780" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- ════════════════════ LAYER 3 — ACCESS PATHS ════════════════════ -->
+  <line x1="30" y1="292" x2="830" y2="292" stroke="#e8e6de" stroke-width="1"/>
+  <text x="30" y="306" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" font-weight="700" fill="#9ca3af" letter-spacing="1.5">LAYER 3 — TWO PATHS TO THE SERVER</text>
+
+  <!-- LAN zone  x=30 w=290 y=316 h=210 -->
+  <rect x="30" y="316" width="290" height="210" rx="11" fill="#f4fcf8" stroke="#0F6E56" stroke-width="0.75" stroke-dasharray="5 3"/>
+  <text x="46" y="334" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" font-weight="700" fill="#0F6E56" letter-spacing="0.8">LOCAL NETWORK (LAN)</text>
+  <!-- devices -->
+  <rect x="46" y="344" width="258" height="32" rx="7" fill="#F1EFE8" stroke="#B4B2A9" stroke-width="0.5"/>
+  <text x="175" y="360" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" font-weight="600" fill="#374141" dominant-baseline="central">Laptop</text>
+  <rect x="46" y="382" width="258" height="32" rx="7" fill="#F1EFE8" stroke="#B4B2A9" stroke-width="0.5"/>
+  <text x="175" y="398" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" font-weight="600" fill="#374141" dominant-baseline="central">Desktop</text>
+  <rect x="46" y="420" width="258" height="32" rx="7" fill="#F1EFE8" stroke="#B4B2A9" stroke-width="0.5"/>
+  <text x="175" y="436" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" font-weight="600" fill="#374141" dominant-baseline="central">Smartphone</text>
+  <rect x="46" y="458" width="258" height="32" rx="7" fill="#F1EFE8" stroke="#B4B2A9" stroke-width="0.5"/>
+  <text x="175" y="474" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" font-weight="600" fill="#374141" dominant-baseline="central">Smart TV</text>
+  <!-- LAN → router (L-bend) -->
+  <path d="M 320 420 L 360 420 L 360 247 L 370 247" fill="none" stroke="#1D9E75" stroke-width="2" stroke-dasharray="6 3" marker-end="url(#arr)"/>
+  <text x="328" y="413" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#1D9E75" font-weight="600">LAN</text>
+
+  <!-- Home server  x=330 y=360 w=200 -->
+  <rect x="330" y="360" width="200" height="68" rx="9" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.75"/>
+  <text x="430" y="382" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" font-weight="700" fill="#3C3489" dominant-baseline="central">Home server</text>
+  <text x="430" y="400" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#534AB7" dominant-baseline="central">Old HP laptop · Ubuntu 22.04</text>
+  <text x="430" y="418" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#7F77DD" dominant-baseline="central">Docker Engine installed</text>
+
+  <!-- VPN zone  x=540 w=290 y=316 h=210 -->
+  <rect x="540" y="316" width="290" height="210" rx="11" fill="#fdf4f1" stroke="#993C1D" stroke-width="0.75" stroke-dasharray="5 3"/>
+  <text x="556" y="334" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" font-weight="700" fill="#993C1D" letter-spacing="0.8">REMOTE ACCESS (VPN)</text>
+  <rect x="556" y="344" width="258" height="32" rx="7" fill="#F1EFE8" stroke="#B4B2A9" stroke-width="0.5"/>
+  <text x="685" y="360" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" font-weight="600" fill="#374141" dominant-baseline="central">Smartphone</text>
+  <rect x="556" y="382" width="258" height="32" rx="7" fill="#F1EFE8" stroke="#B4B2A9" stroke-width="0.5"/>
+  <text x="685" y="398" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" font-weight="600" fill="#374141" dominant-baseline="central">Laptop</text>
+  <!-- device → WireGuard arrow -->
+  <line x1="685" y1="414" x2="685" y2="430" stroke="#993C1D" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- WireGuard node -->
+  <rect x="556" y="430" width="258" height="52" rx="8" fill="#FAECE7" stroke="#993C1D" stroke-width="0.75"/>
+  <text x="685" y="450" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" font-weight="700" fill="#712B13" dominant-baseline="central">WireGuard VPN</text>
+  <text x="685" y="468" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#993C1D" dominant-baseline="central">UDP 51820 · AES-256 encrypted tunnel</text>
+  <!-- VPN → server L-bend -->
+  <path d="M 540 456 L 500 456 L 500 394 L 530 394" fill="none" stroke="#D85A30" stroke-width="2" stroke-dasharray="6 3" marker-end="url(#arr)"/>
+  <text x="508" y="449" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#D85A30" font-weight="600">VPN</text>
+
+  <!-- ════════════════════ LAYER 4 — DOCKER ════════════════════ -->
+  <line x1="30" y1="548" x2="830" y2="548" stroke="#e8e6de" stroke-width="1"/>
+  <text x="30" y="562" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" font-weight="700" fill="#9ca3af" letter-spacing="1.5">LAYER 4 — DOCKER SERVICES</text>
+  <!-- server → docker arrow -->
+  <line x1="430" y1="428" x2="430" y2="572" stroke="#534AB7" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Docker container zone -->
+  <rect x="30" y="572" width="800" height="168" rx="11" fill="#faf9ff" stroke="#534AB7" stroke-width="0.75" stroke-dasharray="6 3"/>
+  <text x="46" y="590" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" font-weight="700" fill="#534AB7" letter-spacing="0.8">DOCKER CONTAINERS — ALL SERVICES RUN ON THE HOME SERVER</text>
+  <!-- Row 1: x=46,298,550  w=236 h=50 -->
+  <rect x="46"  y="600" width="236" height="50" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+  <text x="164" y="620" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" font-weight="700" fill="#085041" dominant-baseline="central">Pi-hole</text>
+  <text x="164" y="638" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#0F6E56" dominant-baseline="central">DNS · network-wide ad blocking</text>
+  <rect x="298" y="600" width="236" height="50" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+  <text x="416" y="620" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" font-weight="700" fill="#085041" dominant-baseline="central">Unbound</text>
+  <text x="416" y="638" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#0F6E56" dominant-baseline="central">Recursive DNS resolver</text>
+  <rect x="550" y="600" width="236" height="50" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+  <text x="668" y="620" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" font-weight="700" fill="#085041" dominant-baseline="central">Nextcloud</text>
+  <text x="668" y="638" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#0F6E56" dominant-baseline="central">Private cloud storage</text>
+  <!-- Row 2 -->
+  <rect x="46"  y="660" width="236" height="50" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+  <text x="164" y="680" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" font-weight="700" fill="#085041" dominant-baseline="central">Jellyfin</text>
+  <text x="164" y="698" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#0F6E56" dominant-baseline="central">Media streaming server</text>
+  <rect x="298" y="660" width="236" height="50" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+  <text x="416" y="680" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" font-weight="700" fill="#085041" dominant-baseline="central">Vaultwarden</text>
+  <text x="416" y="698" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#0F6E56" dominant-baseline="central">Self-hosted password manager</text>
+  <rect x="550" y="660" width="236" height="50" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+  <text x="668" y="680" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" font-weight="700" fill="#085041" dominant-baseline="central">Uptime Kuma</text>
+  <text x="668" y="698" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#0F6E56" dominant-baseline="central">Service uptime monitoring</text>
+
+  <!-- ════════════════════ LAYER 5 — STORAGE ════════════════════ -->
+  <line x1="30" y1="758" x2="830" y2="758" stroke="#e8e6de" stroke-width="1"/>
+  <text x="30" y="772" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" font-weight="700" fill="#9ca3af" letter-spacing="1.5">LAYER 5 — STORAGE</text>
+  <line x1="430" y1="740" x2="430" y2="782" stroke="#888780" stroke-width="2" marker-end="url(#arr)"/>
+  <!-- SSD x=30 w=390 -->
+  <rect x="30" y="782" width="390" height="54" rx="9" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.75"/>
+  <text x="225" y="802" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" font-weight="700" fill="#633806" dominant-baseline="central">SSD</text>
+  <text x="225" y="820" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#854F0B" dominant-baseline="central">OS · Docker images · container volumes</text>
+  <!-- HDD x=434 w=396 -->
+  <rect x="434" y="782" width="396" height="54" rx="9" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.75"/>
+  <text x="632" y="802" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" font-weight="700" fill="#633806" dominant-baseline="central">HDD</text>
+  <text x="632" y="820" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#854F0B" dominant-baseline="central">All persistent service data · large files</text>
+  <!-- HDD folders -->
+  <rect x="434" y="836" width="396" height="80" rx="0" fill="#fff8ef" stroke="#854F0B" stroke-width="0.5" stroke-dasharray="3 2"/>
+  <text x="450" y="852" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="11" fill="#633806">/nextcloud/data</text>
+  <text x="450" y="868" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="11" fill="#633806">/jellyfin/media</text>
+  <text x="450" y="884" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="11" fill="#633806">/documents</text>
+  <text x="450" y="900" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="11" fill="#633806">/backups</text>
+
+  <!-- ════════════════════ LEGEND ════════════════════ -->
+  <line x1="30" y1="928" x2="830" y2="928" stroke="#e8e6de" stroke-width="1"/>
+  <circle cx="42" cy="944" r="5" fill="#1D9E75"/>
+  <text x="52" y="948" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#5F5E5A" dominant-baseline="central">LAN path (direct)</text>
+  <line x1="166" y1="944" x2="194" y2="944" stroke="#D85A30" stroke-width="2" stroke-dasharray="5 3"/>
+  <text x="200" y="948" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#5F5E5A" dominant-baseline="central">VPN path (encrypted)</text>
+  <line x1="348" y1="944" x2="376" y2="944" stroke="#534AB7" stroke-width="2"/>
+  <text x="382" y="948" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#5F5E5A" dominant-baseline="central">Docker path</text>
+  <line x1="480" y1="944" x2="508" y2="944" stroke="#888780" stroke-width="2"/>
+  <text x="514" y="948" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#5F5E5A" dominant-baseline="central">Core network path</text>
+  <rect x="640" y="939" width="12" height="12" rx="2" fill="#854F0B"/>
+  <text x="658" y="948" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#5F5E5A" dominant-baseline="central">Storage</text>
+</svg>
