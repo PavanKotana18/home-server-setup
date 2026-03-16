@@ -54,14 +54,6 @@ Old laptops are actually very useful for home servers because they already inclu
 
 The laptop will remain connected to the router and run continuously.
 
-Estimated power consumption:
-
-15W – 40W
-
-Monthly electricity cost is roughly around:
-
-₹40 – ₹120
-
 ---
 
 Network Structure
@@ -78,13 +70,7 @@ The home server is also connected to the same router.
 
 Simple structure:
 
-Internet
-↓
-Router
-↓
-Home Devices
-↓
-Home Server
+Internet --> Router --> Home devices --> Home Server
 
 The server provides services to all devices inside the network.
 
