@@ -335,3 +335,56 @@ A home server does not need expensive hardware.
 Even an old laptop can become a powerful personal server capable of running multiple useful services.
 
 This repository documents the idea, structure, and learning process behind building that system.
+
+
+## 🚀 Latest Progress (Docker + Server Setup)
+
+### ✅ Docker Setup
+- Installed Docker successfully
+- Fixed permission issue using:
+  sudo usermod -aG docker $USER
+  newgrp docker
+
+---
+
+### ✅ Navidrome Container Setup
+
+docker run -d \
+  --name navidrome \
+  -p port:port \
+  -v /home/pavan/data:/data \
+  deluan/navidrome
+
+---
+
+### 🌐 Access URLs
+
+- Local:
+  http://localhost:port
+
+- Network (LAN):
+  http://192.168.x.x:port
+
+---
+
+### 📱 Verified
+
+- Access from same system ✅  
+- Access from mobile (same WiFi) ✅  
+
+---
+
+### 🧠 Learning Outcomes
+
+- Docker basics  
+- Port mapping  
+- Local server hosting  
+- Network access  
+
+---
+
+### 🎯 Next Plan
+
+- Internet exposure  
+- Docker Compose  
+- Multi-service setup
